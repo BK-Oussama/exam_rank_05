@@ -1,0 +1,76 @@
+Life:
+
+Submitted files: *.c, *.h
+Allowed functions: atoi, read, putchar, malloc, calloc, realloc, free
+
+Prototype of program: ./life width height iterations
+
+Width and height are the dimensions of the board and iterations is the number of iterations of the game of life.
+
+The initial configuration of the board will be drawn by a sequence of commands in the standard input.
+
+Imagine a pen starting in the top left corner of the board.
+Each command is one of these characters:
+	w a s d -> move the pen up, left, bottom, and right.
+	x 		-> lift or lower the pen in order to start or stop drawing.
+
+once end of Tile is reached, your program must simulate a game ot Lite on
+board and print the result in stdout (each cell alive will be represented l
+the character '0' and each dead cell will be represented by a space)
+
+each cell outside of the array will be considered dead.
+
+Examples:
+
+$> echo 'sdxddssaaww' | ./a.out 5 5 0 | cat - e
+     $
+ 000 $
+ 0 0 $
+ 000 $
+     $
+$> echo 'sdxssdswdxdddxsaddawxwdxwaa' | ./a.out 10 6 0 | cat -e
+          $
+ 0   000  $
+ 0     0  $
+ 000  0   $
+  0  000  $
+          $
+$> echo 'dxss' | ./a.out 3 3 0 | cat -e
+ 0 $
+ 0 $
+ 0 $
+$> echo 'dxss' | ./a.out 3 3 1 | cat -e
+   $
+000$
+   $
+$> echo 'dxss' | ./a.out 3 3 2 | cat -e
+ 0 $
+ 0 $
+ 0 $
+
+
+ The universe of the Game of Life is an infinite, two dimensional orthogonal 
+grid of square cells, each of which is in one of two possible states, live
+ or dead (or populated and unpopulated, respectively). Every cell interacts
+with its eight neighbours, which are the cells that are horizontally, 
+vertically, or diagonally adjacent. At each step in time, the following transitions occur:
+
+
+	Any live cell with fewer than two live neighbours dies, as if by underpopulation.
+	Any live cell with two or three live neighbours lives on to the next generation.
+	Any live cell with more than three live neighbours dies, as if by overpopulation.
+	Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction.
+
+These rules, which compare the behaviour of the automaton to real life, can be condensed into the following:
+
+	Any live cell with two or three live neighbours survives.
+	Any dead cell with three live neighbours becomes a live cell.
+	All other live cells die in the next generation. Similarly, all other dead cells stay dead.
+
+The initial pattern constitutes the seed of the system. The first generation 
+is created by applying the above rules simultaneously to every cell in the
+ seed, live or dead; births and deaths occur simultaneously, and the discrete
+ moment at which this happens is sometimes called a tick. Each generation
+ is a pure function of the preceding one.
+The rules continue to be applied
+ repeatedly to create further generations.
