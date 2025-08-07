@@ -1,0 +1,25 @@
+Assignment name  : polyset
+Expected files   : searchable_array_bag.cpp searchable_array_bag.hpp
+                   searchable_tree_bag.cpp searchable_tree_bag.hpp
+                   set.cpp set.hpp
+--------------------------------------------------------------------------------
+
+You will find in this directory some classes:
+- bag: an abstract class representing a bag.
+- searchable_bag: an abstract class representing a bag with the ability to search in it.
+- array_bag: an implementation of a bag using an array as the underlying data structure.
+- tree_bag: an implementation of a bag using a binary search tree as the underlying data structure.
+
+First part:
+Since a bag without a searching function isn't very useful, implement two classes:
+- searchable_array_bag (inherits from array_bag and implements searchable_bag)
+- searchable_tree_bag (inherits from tree_bag and implements searchable_bag)
+
+Second part:
+Implement the class set that will wrap a searchable_bag and turn it into a set.
+
+All your classes must:
+- Follow the orthodox canonical form (constructor, copy, assignment, destructor).
+- Correctly use const where appropriate.
+
+You will find a main in this directory that must compile and run with your code.
