@@ -42,7 +42,7 @@ void bigint::check_digits()
         if (!std::isdigit(static_cast<unsigned char>(m_value[i])))
         {
             m_value = "0";
-            return ;
+            return;
         }
         i++;
     }
@@ -57,4 +57,43 @@ std::ostream &operator<<(std::ostream &os, const bigint &num)
 {
     os << num.get_value();
     return os;
+}
+
+
+
+bool operator==(const bigint &a, const bigint &b)
+{
+    if (a.get_value() == b.get_value())
+        return true;
+
+    return false;
+}
+
+bool operator!=(const bigint &a, const bigint &b)
+{
+    if (a == b)
+        return false;
+    return true;
+}
+
+bool operator<(const bigint &a, const bigint &b)
+{
+
+
+}
+
+static int compare_strings(const std::string &A, const std::string &B)
+{
+    if (A.size() < B.size())
+        return -1;
+    if (A.size() > B.size())
+        return 1;
+
+    if (A == B)
+        return 0;
+        
+    if (A < B)
+        return -1;
+    if (A > B)
+        return 1;
 }

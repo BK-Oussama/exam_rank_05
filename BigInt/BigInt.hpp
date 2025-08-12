@@ -29,4 +29,14 @@ public:
 
 std::ostream &operator<<(std::ostream &out, const bigint &num);
 
+
+bool operator==(const bigint &a, const bigint &b);
+bool operator!=(const bigint &a, const bigint &b);
+bool operator<(const bigint &a, const bigint &b);
+bool operator<=(const bigint &a, const bigint &b);
+bool operator>(const bigint &a, const bigint &b);
+bool operator>=(const bigint &a, const bigint &b);
+
+
+
 #endif
