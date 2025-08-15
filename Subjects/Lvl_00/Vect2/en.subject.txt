@@ -21,4 +21,7 @@ Your class must also implement:
 - Comparison operators (== and !=).
 - Support for scalar operations in both orders (e.g. v * 2 and 2 * v).
 
+v= (-5, -6);
+v = v;
+
 You will find a main in this directory that must work with your class.

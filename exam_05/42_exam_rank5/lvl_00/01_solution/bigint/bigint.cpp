@@ -26,6 +26,7 @@ bigint::bigint(const std::string &val)
     }
 }
 bigint::bigint(const bigint &other) : _val(other._val) {}
+
 bigint &bigint::operator=(const bigint &rhs)
 {
     if (this != &rhs)
