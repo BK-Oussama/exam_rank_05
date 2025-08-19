@@ -16,14 +16,31 @@ bigint::bigint(const std::string &num) : m_value(num)
     check_digits();
 }
 
-bigint::bigint(const bigint &copy) : m_value(copy.m_value)
+bigint::bigint(const bigint &copy)
 {
+    *this = copy;
+}
+
+bigint &bigint::operator=(const bigint &other)
+{
+    if (this != &other)
+    {
+        m_value = other.m_value;
+    }
+    return *this;
+}
+
+bigint &bigint::operator+=(const bigint &other)
+{
+    *this = *this + other;
+    return *this;
 }
 
 bigint::~bigint()
 {
-    std::cout << "Destructor called" << std::endl;
+    std::cout << "Destructor called for bigint: " << m_value << std::endl;
 }
+
 
 void bigint::trim()
 {
@@ -134,7 +151,8 @@ bigint operator+(const bigint &a, const bigint &b)
 
     std::string result;
 
-    int i = (int)A.size() - 1;
+    // importatnt to cast to int befor substrctin - 1, becasue if it 0 it will underflow
+    int i = (int)A.size() - 1; 
     int j = (int)B.size() - 1;
     int carry = 0;
 
@@ -160,21 +178,6 @@ bigint operator+(const bigint &a, const bigint &b)
     std::reverse(result.begin(), result.end());
 
     return bigint(result);
-}
-
-bigint &bigint::operator=(const bigint &other)
-{
-    if (this != &other)
-    {
-        m_value = other.m_value;
-    }
-    return *this;
-}
-
-bigint &bigint::operator+=(const bigint &other)
-{
-    *this = *this + other;
-    return *this;
 }
 
 bigint operator<<(const bigint &num, int k)
@@ -217,4 +220,18 @@ bigint &bigint::operator>>=(int k)
 {
     *this = *this >> k;
     return *this;
+}
+
+
+bigint &bigint::operator++()
+{
+    *this = *this + bigint(1);
+    return *this;
+}
+
+bigint bigint::operator++(int)
+{
+    bigint old = *this;
+    *this = *this + bigint(1);
+    return old;
 }

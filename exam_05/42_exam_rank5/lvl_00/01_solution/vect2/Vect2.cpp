@@ -9,14 +9,17 @@ vect2& vect2::operator=(const vect2& rhs){
     }
     return *this;
 }
+
 vect2::~vect2(){}
 
-int& vect2::operator[](const int i){
-    return  (i == 0) ? _x : _y;
+int &vect2::operator[](const int i)
+{
+    return (i == 0) ? _x : _y;
 }
 
-int vect2::operator[](int i) const{
-    return  (i == 0) ? _x : _y;
+int vect2::operator[](int i) const
+{
+    return (i == 0) ? _x : _y;
 }
 
 vect2 vect2::operator+(int i){
