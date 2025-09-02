@@ -1,9 +1,9 @@
 
-I want you to help me solve a C++98 exercise step by step. Follow this exact workflow and style.
+I want you to help me solve a C exercise step by step. Follow this exact workflow and style.
 
 0) Global rules & style
 
-    - Toolchain: compile with -Wall -Wextra -Werror -std=c++98.
+    - Toolchain: compile with -Wall -Wextra -Werror 
 
     - Code style: no ternary (?:) — use simple if statements only; simplify return values (explicit if + return is fine).
 

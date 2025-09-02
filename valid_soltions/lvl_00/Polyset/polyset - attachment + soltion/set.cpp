@@ -6,7 +6,6 @@ set::set(searchable_bag &backend) : bag_(&backend) {};
 
 set::set(const set &copy) : bag_(copy.bag_) {};
 
-
 set &set::operator=(const set &other)
 {
     if (this != &other)
@@ -39,15 +38,14 @@ void set::insert(int x)
 void set::insert(int *array, int n)
 {
     if (this->bag_ == 0 || n <= 0 || array == 0)
-        return ;
-    
+        return;
+
     int i = 0;
     while (i < n)
     {
         this->insert(array[i]);
         i++;
     }
-
 }
 
 void set::print() const
