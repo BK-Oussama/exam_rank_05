@@ -81,13 +81,11 @@ int process_file(const char *filename, t_map **map)
     }
 
     // validate characters
-    if ((*map)->empty == (*map)->obstacle || (*map)->empty == (*map)->full ||  (*map)->full == (*map)->obstacle )
+    if ((*map)->empty == (*map)->obstacle || (*map)->empty == (*map)->full || (*map)->full == (*map)->obstacle)
     {
         fprintf(stderr, "map error\n");
         return 1;
     }
-
-
 
     size_t len = 0;
     char *line = NULL;
@@ -112,8 +110,13 @@ int process_file(const char *filename, t_map **map)
         line_count++;
     }
 
-    (*map)->num_lines = line_count; // line count will be use later to check array ** bounds
-
+    (*map)->num_lines = line_count; // validate map lines
+    if ((*map)->num_lines != (*map)->declared_line)
+    {
+        fprintf(stderr, "map error\n");
+        return 1;
+    }
+ 
     free(line);
     if (filename && file != stdin)
         fclose(file);
@@ -122,7 +125,6 @@ int process_file(const char *filename, t_map **map)
 
 void validate_map_structure(t_map **map)
 {
-    // check IDs
 }
 
 int main(int argc, char **argv)

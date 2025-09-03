@@ -1,2 +1,7 @@
 .vscode/
 tryout/
+Add to .gitignore:  
+*.md  
+c_*  
+*.txt  
+*.json
