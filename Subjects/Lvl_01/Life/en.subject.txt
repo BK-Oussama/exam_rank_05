@@ -1,3 +1,5 @@
+
+--------------------------------------------------------------------------------
 Assignment name  : life
 Expected files   : *.c *.h
 Allowed functions: atoi, read, putchar, malloc, calloc, realloc, free

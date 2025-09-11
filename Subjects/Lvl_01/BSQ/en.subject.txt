@@ -30,7 +30,7 @@ When your program receives more than one map in argument, each solution or
 Should there be no passed arguments, your program must be able to read on the
 standard input.
 
-Definition of a valid map :
+Definition of a valid map:
  - All lines must have the same length.
  - There's at least one line of at least one box.
  - At each end of line, there's a line break.
@@ -45,7 +45,7 @@ Definition of a valid map :
 
 example:
 %>cat example_file
-9 . o x
+9.ox
 ...........................
 ....o......................
 ............o..............
