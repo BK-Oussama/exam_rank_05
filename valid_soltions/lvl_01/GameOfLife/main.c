@@ -6,18 +6,18 @@
 
 int main(int argc, char **argv)
 {
-
     if (argc != 4)
         return 1;
 
-    int height = atoi(argv[2]), width = atoi(argv[1]), iterations = atoi(argv[3]);
+    int height = atoi(argv[1]), width = atoi(argv[2]), iterations = atoi(argv[3]);
 
-    if (width <= 0 || height <= 0 || iterations < 0)
+    if (height <= 0 || width <= 0 || iterations < 0)
         return 1;
 
     char board[height][width];
     char new_board[height][width];
 
+    // this while loop popuse is to fill the board with empty cells
     int i = 0;
     while (i < height)
     {
@@ -30,6 +30,7 @@ int main(int argc, char **argv)
         i++;
     }
 
+    // filling the board with stdin config
     char c;
     int pen = 0, x = 0, y = 0;
     while (read(STDIN_FILENO, &c, 1))
@@ -42,16 +43,14 @@ int main(int argc, char **argv)
             x--;
         else if (c == 'd' && x < width - 1)
             x++;
-        else if (c == 'x' && pen)
-            pen = 0;
-        else if (c == 'x' && !pen)
-            pen = 1;
+        else if (c == 'x')
+            pen = !pen;
 
         if (pen)
             board[y][x] = 1;
     }
 
-
+    // simulation phase
     i = 0;
     while (i < iterations)
     {
@@ -74,9 +73,9 @@ int main(int argc, char **argv)
                     }
                     yy++;
                 }
-
+                // after checking neighbors of the curent (y,x) we update the new board!
                 if (board[y][x] && (density == 2 || density == 3))
-                    new_board[y][x] == 1;
+                    new_board[y][x] = 1;
                 else if (!board[y][x] && density == 3)
                     new_board[y][x] = 1;
                 else
@@ -87,6 +86,7 @@ int main(int argc, char **argv)
             y++;
         }
 
+        // thise while loop store the state of the last iteration, befor moving to the next!
         int rows = 0;
         while (rows < height)
         {
@@ -98,10 +98,10 @@ int main(int argc, char **argv)
             }
             rows++;
         }
-
         i++;
     }
 
+    // printing the last itertion of board of game of life
     i = 0;
     while (i < height)
     {
@@ -109,7 +109,7 @@ int main(int argc, char **argv)
         while (j < width)
         {
             if (board[i][j])
-                putchar('O');
+                putchar('0');
             else
                 putchar(' ');
             j++;
