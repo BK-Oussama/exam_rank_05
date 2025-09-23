@@ -38,7 +38,6 @@ bigint &bigint::operator+=(const bigint &other)
 
 bigint::~bigint() {}
 
-
 void bigint::trim()
 {
     size_t pos = m_value.find_first_not_of('0');
@@ -77,8 +76,6 @@ std::ostream &operator<<(std::ostream &os, const bigint &num)
     return os;
 }
 
-
-
 bool operator==(const bigint &a, const bigint &b)
 {
     if (a.get_value() == b.get_value())
@@ -111,22 +108,6 @@ int compare_string(const std::string &A, const std::string &B)
     return 0;
 }
 
-bool operator<(const bigint &a, const bigint &b)
-{
-    int cmp = compare_string(a.get_value(), b.get_value());
-    if (cmp < 0)
-        return true;
-    return false;
-}
-
-bool operator<=(const bigint &a, const bigint &b)
-{
-    int cmp = compare_string(a.get_value(), b.get_value());
-    if (cmp <= 0)
-        return true;
-    return false;
-}
-
 bool operator>(const bigint &a, const bigint &b)
 {
     int cmp = compare_string(a.get_value(), b.get_value());
@@ -143,6 +124,22 @@ bool operator>=(const bigint &a, const bigint &b)
     return false;
 }
 
+bool operator<(const bigint &a, const bigint &b)
+{
+    int cmp = compare_string(a.get_value(), b.get_value());
+    if (cmp < 0)
+        return true;
+    return false;
+}
+
+bool operator<=(const bigint &a, const bigint &b)
+{
+    int cmp = compare_string(a.get_value(), b.get_value());
+    if (cmp <= 0)
+        return true;
+    return false;
+}
+
 bigint operator+(const bigint &a, const bigint &b)
 {
     const std::string &A = a.get_value();
@@ -151,7 +148,7 @@ bigint operator+(const bigint &a, const bigint &b)
     std::string result;
 
     // importatnt to cast to int befor substrctin - 1, becasue if it 0 it will underflow
-    int i = (int)A.size() - 1; 
+    int i = (int)A.size() - 1;
     int j = (int)B.size() - 1;
     int carry = 0;
 
@@ -220,7 +217,6 @@ bigint &bigint::operator>>=(int k)
     *this = *this >> k;
     return *this;
 }
-
 
 bigint &bigint::operator++()
 {

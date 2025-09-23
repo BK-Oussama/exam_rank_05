@@ -72,7 +72,7 @@ int parse_header(char *line, t_map **map)
         if (c < '0' || c > '9')
             return -1;
         num = num * 10 + (c - '0');
-        if (num > __INT_MAX__)
+        if (num > INT_MAX)
             return -1;
         i++;
     }
