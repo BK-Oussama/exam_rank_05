@@ -110,6 +110,7 @@ vect2 vect2::operator+() const
 {
     return *this;
 }
+
 vect2 vect2::operator-() const
 {
     return vect2(-m_x, -m_y);

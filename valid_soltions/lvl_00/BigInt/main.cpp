@@ -1,5 +1,3 @@
-// Compile:
-// c++ -Wall -Wextra -Werror -std=c++98 main.cpp bigint.cpp && ./a.out
 
 #include "bigint.hpp"
 

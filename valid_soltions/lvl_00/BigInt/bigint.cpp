@@ -147,7 +147,7 @@ bigint operator+(const bigint &a, const bigint &b)
 
     std::string result;
 
-    // importatnt to cast to int befor substrctin - 1, becasue if it 0 it will underflow
+    // importatnt to cast to int befor substrcting - 1, becasue if it 0 it will underflow
     int i = (int)A.size() - 1;
     int j = (int)B.size() - 1;
     int carry = 0;

@@ -2,7 +2,6 @@ typedef struct s_map
 {
     char **lines;
     int declared_lines;
-    int num_lines;
     int line_length;
 
     char full;
@@ -29,7 +28,6 @@ void initi_map(t_map *map)
     map->lines = 0;
 
     map->declared_lines = 0;
-    map->num_lines = 0;
     map->line_length = 0;
 
     map->empty = 0;
@@ -39,7 +37,7 @@ void initi_map(t_map *map)
 
 int is_printable(char c)
 {
-    if (c == '\n' || c < 32)
+    if (c == '\n' || c < 32 || c == 127)
         return -1;
     else
         return 0;
@@ -128,13 +126,12 @@ int process_file(char *filename, t_map **map)
     char *line = NULL;
     getline(&line, &len, file);
 
-    if (parse_header(line, map) != 0) // error
+    if (parse_header(line, map) != 0)
     {
         free(line);
         return -1;
     }
 
-    // starting reading the file but alocat one batch double array;
     (*map)->lines = calloc((*map)->declared_lines, sizeof *(*map)->lines);
     if (!(*map)->lines)
         return -1;
@@ -238,6 +235,7 @@ void apply_square(t_map *map, t_square sq)
         x++;
     }
 }
+
 
 int main(int argc, char **argv)
 {

@@ -280,6 +280,8 @@ int process_file(const char *filename, t_map **map)
     return 0;
 }
 
+
+// parsing not valid, NAIVE Approch valid
 int main(int argc, char **argv)
 {
     if (argc == 1)
